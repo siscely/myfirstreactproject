@@ -6,6 +6,7 @@ import Auxi from '../hoc/Auxi';
 import withClass from '../hoc/withClass';
 
 export const AuthContext = React.createContext(false);
+
 class App extends PureComponent {
   constructor(props){
     super(props);
@@ -39,6 +40,20 @@ class App extends PureComponent {
     console.log ('[UPDATE App.js] inside componentWillUpdate', nextProps, nextState);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(
+      "[UPDATE App.js] Inside getDerivedStateFromProps",
+      nextProps,
+      prevState
+    );
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log(
+      "[UPDATE App.js] Inside getSnapshotBeforeUpdate"
+      );
+  }
   componentDidUpdate ()  {
     console.log ('[UPDATE App.js] inside componentDidUpdate');
   }
